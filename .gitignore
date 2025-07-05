@@ -1,0 +1,12 @@
+# כלליים
+.DS_Store
+*.log
+.env
+
+# Angular client
+/recipesAngular/node_modules
+/recipesAngular/dist
+
+# Node.js server
+/recipesNodeJs/node_modules
+/recipesNodeJs/.env
