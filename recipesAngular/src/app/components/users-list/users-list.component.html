@@ -1,0 +1,38 @@
+
+<!-- //עיצוב מותאם לעמוד המתכונים */ -->
+
+<div class="users-container">
+  <h2 class="users-title">רשימת משתמשים</h2>
+
+  <!-- <p [hidden]="users.length > 0 || error" class="no-users">
+    אין משתמשים להצגה.
+  </p>
+
+  <p [hidden]="!error" class="users-error">{{ error }}</p> -->
+
+
+
+  <ul class="users-grid">
+    <li 
+      *ngFor="let user of users; trackBy: trackUserId"
+      class="card user-card">
+      
+      <h3>{{ user.userName }}</h3>
+      <p><strong>כתובת:</strong> {{ user.address }}</p>
+      <p><strong>טלפון:</strong> {{ user.phone }}</p>
+      <p><strong>מנהל?</strong> {{ user.isAdmin ? 'כן' : 'לא' }}</p>
+      <p><strong>סיסמה:</strong> {{ user.password }}</p>
+      <p><strong>מתכונים מועדפים:</strong> {{ user.favoriteRecipes.length }}</p>
+
+      <div class="user-id-box">
+        <span class="user-id"><strong>קוד לקוח:</strong></span>
+        <code>{{ user._id }}</code>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+
+

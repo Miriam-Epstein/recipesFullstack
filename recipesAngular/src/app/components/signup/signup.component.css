@@ -1,0 +1,61 @@
+
+
+ /* //עיצוב של הטופס */
+
+ .login-card {
+  max-width: 450px;
+  margin: 60px auto;
+  background: #fdfdfd;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 16px rgba(139, 94, 60, 0.2); /* צל חום בהיר */
+  border-top: 8px solid #8b5e3c; /* פס עליון צבעוני */
+  transition: 0.3s ease-in-out;
+}
+
+.login-card:hover {
+  box-shadow: 0 8px 24px rgba(115, 73, 44, 0.3); /* צל חזק יותר בהובר */
+}
+
+.login-btn {
+  background-color: #8b5e3c; /* חום כהה שמתאים לסגנון האתר */
+  color: white;
+  border: none;
+  transition: 0.3s;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.login-btn:hover {
+  background-color: #73492c;
+  cursor: pointer;
+}
+
+.custom-login-title {
+  color: #6d6037;
+  font-weight: bold;
+}
+
+.form-control {
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #8b5e3c;
+  box-shadow: 0 0 0 4px rgba(139, 94, 60, 0.15);
+  background-color: #fffdf8; /* רקע רך */
+  outline: none;
+}
+
+.form-label {
+  color: #6d6037;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+}
+

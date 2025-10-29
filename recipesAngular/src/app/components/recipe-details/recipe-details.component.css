@@ -1,0 +1,91 @@
+
+/* עיצוב בהתאמה לעמוד הבית */
+.recipe-details-card {
+  background: #fff5eb;
+  border: 1.5px solid #d9b382;
+  box-shadow: 0 6px 14px rgba(148, 84, 45, 0.3);
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 700px;
+  margin: auto;
+  direction: rtl;
+}
+
+.recipe-title {
+  text-align: center;
+  color: #7c4a0a;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+}
+
+.recipe-image-large {
+  display: block;
+  margin: 0 auto 25px;
+  max-height: 300px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(183, 114, 46, 0.3);
+}
+
+.recipe-info p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #4a2e0f;
+}
+
+.ingredients-title {
+  margin-top: 25px;
+  font-size: 1.3rem;
+  border-bottom: 2px solid #d9b382;
+  padding-bottom: 6px;
+  color: #7c4a0a;
+}
+
+.ingredients-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ingredient-item {
+  background: #fff;
+  border: 1px solid #e4c8aa;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+  color: #5a3d1b;
+}
+
+.ingredient-badge {
+  background-color: #d97c21;
+  color: white;
+  border-radius: 12px;
+  padding: 4px 12px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.user-id-box {
+  margin-top: 25px;
+  padding: 10px;
+  background: #fef7ec;
+  border: 1px solid #e1c197;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  color: #6b471f;
+}
+
+.user-id {
+  direction: ltr;
+  unicode-bidi: embed;
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 8px;
+}

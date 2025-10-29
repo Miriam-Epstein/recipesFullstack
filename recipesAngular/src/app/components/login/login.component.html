@@ -1,0 +1,31 @@
+
+<!-- //עיצוב נוסף כולל שדות הטטופס -->
+
+<div class="login-card shadow p-4 mb-5 bg-white rounded">
+  <h2 class="text-center custom-login-title mb-4">
+    <i class="bi bi-box-arrow-in-right"></i> התחברות
+  </h2>
+
+  <form (ngSubmit)="login()">
+    <div class="form-group mb-3">
+      <label class="form-label">שם משתמש:</label>
+      <input [(ngModel)]="userName" name="userName" class="form-control form-control-lg rounded-3 shadow-sm" required>
+    </div>
+
+    <div class="form-group mb-3">
+      <label class="form-label">סיסמה:</label>
+      <input type="password" [(ngModel)]="password" name="password" class="form-control form-control-lg rounded-3 shadow-sm" required>
+    </div>
+
+    <div class="alert alert-danger text-center" *ngFor="let i of [0]" [hidden]="!error">
+      {{ error }}
+    </div>
+
+    <button type="submit" class="btn login-btn w-100">התחבר</button>
+  </form>
+
+  <div *ngFor="let i of [0]" [hidden]="!loggedInUser" class="mt-4 alert alert-success text-center fw-bold">
+    ברוך הבא, {{ loggedInUser?.userName }}!
+  </div>
+</div>
+

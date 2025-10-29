@@ -1,0 +1,20 @@
+
+<!-- //עיצוב משולב לעמוד המתכונים -->
+
+<div class="favorites-container">
+  <h2 class="favorites-title">רשימת מועדפים</h2>
+
+  <p [hidden]="!error" class="favorites-error">{{ error }}</p>
+
+  <p [hidden]="favoriteNames.length > 0 || error" class="no-favorites">
+    אין מועדפים להצגה.
+  </p>
+
+  <ul class="favorites-grid">
+    <li 
+      *ngFor="let name of favoriteNames; let i = index" 
+      class="card favorite-card">
+      <h3>{{ i + 1 }}. {{ name }}</h3>
+    </li>
+  </ul>
+</div>

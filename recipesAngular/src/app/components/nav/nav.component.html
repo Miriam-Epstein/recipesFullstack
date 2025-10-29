@@ -1,0 +1,55 @@
+
+<!-- //עיצוב בהתאמה לעמוד הבית -צבעי קרם כתום -->
+
+<nav class="navbar navbar-expand-lg custom-navbar px-4">
+  <a class="navbar-brand fw-bold text-white" routerLink="/home"> 🍰 מתכונים</a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav me-auto">
+
+      <li class="nav-item"><a class="nav-link" routerLink="/home">דף הבית</a></li>
+      <li class="nav-item" [hidden]="isLoggedIn"><a class="nav-link" routerLink="/signup">
+        <i class="bi bi-person-plus"></i> הרשם
+      </a></li>
+      <li class="nav-item" [hidden]="isLoggedIn"><a class="nav-link" routerLink="/login">
+        <i class="bi bi-box-arrow-in-right"></i> התחבר
+      </a></li>
+      <li class="nav-item" [hidden]="!isLoggedIn"><a class="nav-link" (click)="logout()">
+        <i class="bi bi-box-arrow-right"></i> התנתק
+      </a></li>
+
+      <li class="nav-item" [hidden]="!isLoggedIn">
+        <a class="nav-link" routerLink="/usersList">
+          <i class="bi bi-people"></i> הצגת משתמשים
+        </a>
+      </li>
+
+      <li class="nav-item" [hidden]="!isLoggedIn">
+        <a class="nav-link" routerLink="/add-recipe">
+          <i class="bi bi-plus-circle"></i> הוספת מתכון
+        </a>
+      </li>
+      <li class="nav-item" [hidden]="!isLoggedIn">
+        <a class="nav-link" routerLink="/favorites">
+          <i class="bi bi-heart"></i> המועדפים שלי
+        </a>
+      </li>
+
+    </ul>
+
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item" [hidden]="!isLoggedIn">
+        <a class="nav-link disabled" style="cursor: default;">
+          <i class="bi bi-person-circle logged-in-icon"></i>
+          &nbsp;{{ userName }}
+        </a>
+      </li>
+
+      <li class="nav-item" [hidden]="isLoggedIn">
+        <a class="nav-link disabled" style="cursor: default;">
+          <i class="bi bi-person-circle guest-icon"></i>
+          &nbsp; אורח
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

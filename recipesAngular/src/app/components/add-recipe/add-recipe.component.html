@@ -1,0 +1,84 @@
+
+
+<div class="container mt-5 w-100 add-recipe-container">
+  <h2 class="text-center mb-4 add-recipe-title">הוספת מתכון חדש</h2>
+
+  <form (ngSubmit)="addRecipe()" class="add-recipe-form">
+    <div class="form-group mb-3">
+      <label>שם המתכון:</label>
+      <input [(ngModel)]="name" name="name" class="form-control" required />
+    </div>
+
+    <div class="form-group mb-3">
+      <label>תיאור:</label>
+      <textarea [(ngModel)]="description" name="description" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="form-group mb-3">
+      <label>קישור לתמונה:</label>
+      <input [(ngModel)]="image" name="image" class="form-control" />
+    </div>
+
+    <div class="form-group mb-3">
+      <label>רמת קושי:</label>
+      <input [(ngModel)]="level" name="level" class="form-control" />
+    </div>
+
+    <div class="form-group mb-3">
+      <label>זמן הכנה:</label>
+      <input [(ngModel)]="time" name="time" class="form-control" />
+    </div>
+
+    <div class="form-group mb-3">
+      <label>סוג המתכון:</label>
+      <input [(ngModel)]="type" name="type" class="form-control" />
+    </div>
+
+    <hr />
+
+    <h5 class="add-ingredient-title">הוספת מרכיב</h5>
+    <div class="form-group mb-2">
+      <input [(ngModel)]="ingredientName" name="ingredientName" placeholder="שם המרכיב" class="form-control" />
+    </div>
+    <div class="form-group mb-2">
+      <input [(ngModel)]="ingredientAmount" name="ingredientAmount" placeholder="כמות" class="form-control" />
+    </div>
+    <button type="button" class="btn btn-secondary mb-3" (click)="addIngredient()">הוסף מרכיב</button>
+
+    <h6 class="ingredients-title">רשימת המרכיבים:</h6>
+    <ul class="list-group mb-3">
+      <li class="list-group-item" *ngFor="let ingredient of ingredients; let i = index">
+        {{ ingredient.name }} - {{ ingredient.amount }}
+      </li>
+      <li class="list-group-item" *ngFor="let i of [0]" [hidden]="ingredients.length > 0">
+        לא הוספת מרכיבים עדיין.
+      </li>
+    </ul>
+
+    <div class="alert alert-danger" *ngFor="let i of [0]" [hidden]="!error">
+      {{ error }}
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100 mt-3">שמור מתכון</button>
+  </form>
+</div>
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+

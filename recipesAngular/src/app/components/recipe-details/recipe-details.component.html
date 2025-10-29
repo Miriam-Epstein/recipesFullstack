@@ -1,0 +1,38 @@
+
+<!-- //עיצוב בהתאמה לעמוד הבית קרם כתום -->
+
+@if (recipe) {
+  <div class="recipe-details-card">
+    <h2 class="recipe-title">{{ recipe.name }}</h2>
+
+    <img
+      [src]="'http://localhost:1234/img/' + recipe.image"
+      alt="תמונה של {{ recipe.name }}"
+      class="recipe-image-large"
+    />
+
+    <div class="recipe-info">
+      <p><strong>תיאור:</strong> {{ recipe.description }}</p>
+      <p><strong>סוג:</strong> {{ recipe.type }}</p>
+      <p><strong>רמה:</strong> {{ recipe.level }}</p>
+      <p><strong>זמן הכנה:</strong> {{ recipe.time }}</p>
+    </div>
+
+    <h4 class="ingredients-title">מצרכים:</h4>
+    <ul class="ingredients-list">
+      @for (ing of recipe.ingredients; track ing.name) {
+        <li class="ingredient-item">
+          <span>{{ ing.name }}</span>
+          <span class="ingredient-badge">{{ ing.amount }}</span>
+        </li>
+      }
+    </ul>
+
+    <div class="user-id-box">
+      <span class="user-id"><strong>:של מי המתכון</strong></span>
+      <code>{{ recipe.userId }}</code>
+    </div>
+  </div>
+} @else {
+  <p class="text-center mt-5">טוען מתכון...</p>
+}

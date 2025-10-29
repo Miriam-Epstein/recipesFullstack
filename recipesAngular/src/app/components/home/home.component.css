@@ -1,0 +1,78 @@
+
+.recipes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+  padding: 30px 20px;
+  background-color: #fff8f0; /* קרם בהיר */
+  min-height: 100vh;
+}
+
+.card.recipe-card {
+  border-radius: 15px;
+  box-shadow: 0 6px 14px rgba(148, 84, 45, 0.3); /* צל חום עדין */
+  padding: 20px;
+  background: #fff5eb; /* קרם שמנת */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border: 1.5px solid #d9b382; /* מסגרת צבע חום-זהוב */
+}
+
+.card.recipe-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(148, 84, 45, 0.5);
+  border-color: #bf6f2d; /* צבע חום עז יותר */
+}
+
+.recipe-image {
+  width: 100%;
+  max-width: 220px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 12px rgba(183, 114, 46, 0.4);
+}
+
+.recipe-card h3 {
+  color: #7c4a0a; /* חום עמוק */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+}
+
+.btn-primary {
+  background-color: #d97c21; /* כתום-זהוב */
+  border-color: #b06619;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #b06619;
+  border-color: #8c5212;
+}
+
+.btn-outline-danger {
+  color: #b04500; /* אדום חם */
+  border-color: #b04500;
+  width: 100%;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-danger:hover {
+  background-color: #b04500;
+  color: white;
+}

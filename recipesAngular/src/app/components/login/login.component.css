@@ -1,0 +1,59 @@
+
+
+/* //עיצוב מותאם לאתר המתכונים */
+
+ .login-card {
+  max-width: 450px;
+  margin: 60px auto;
+  background: #fdfdfd;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 16px rgba(139, 94, 60, 0.2); 
+  border-top: 8px solid #8b5e3c; 
+  transition: 0.3s ease-in-out;
+  background-color: #fff5eb; 
+  border: 1.5px solid #d9b382;
+  box-shadow: 0 6px 14px rgba(148, 84, 45, 0.3);
+}
+.login-card:hover {
+  box-shadow: 0 8px 24px rgba(115, 73, 44, 0.3); 
+}
+
+.login-btn {
+  background-color: #8b5e3c;
+  color: white;
+  border: none;
+  transition: 0.3s;
+  border-radius: 12px;
+}
+
+.login-btn:hover {
+  background-color: #73492c;
+}
+
+.custom-login-title {
+  color: #6d6037;
+  font-weight: bold;
+}
+
+
+.form-control {
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #8b5e3c;
+  box-shadow: 0 0 0 4px rgba(139, 94, 60, 0.15);
+  background-color: #fffdf8; /* רקע רך */
+  outline: none;
+}
+
+.form-label {
+  color: #6d6037;
+  font-weight: bold;
+}
+
+
