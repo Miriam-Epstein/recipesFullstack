@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import {NavComponent} from './components/nav/nav.component'
+import {FooterComponent} from './components/footer/footer.component'
 import { provideHttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -9,7 +10,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,NavComponent, FormsModule,CommonModule,],
+  imports: [RouterOutlet,NavComponent,FooterComponent, FormsModule,CommonModule,],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
