@@ -1,33 +1,88 @@
 
 /* עיצוב בהתאמה לעמוד הבית */
 .recipe-details-card {
-  background: #fff5eb;
-  border: 1.5px solid #d9b382;
-  box-shadow: 0 6px 14px rgba(148, 84, 45, 0.3);
-  border-radius: 15px;
-  padding: 30px;
+  background: linear-gradient(135deg, rgba(255, 245, 235, 0.95) 0%, rgba(255, 250, 240, 0.98) 100%);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(217, 156, 50, 0.4);
+  box-shadow: 0 10px 30px rgba(148, 84, 45, 0.35);
+  border-radius: 20px;
+  padding: 40px;
   max-width: 700px;
   margin: auto;
   direction: rtl;
+  animation: zoomIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), float 8s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.recipe-details-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(217, 124, 33, 0.05) 0%, transparent 70%);
+  animation: rotate 12s linear infinite;
+  pointer-events: none;
 }
 
 .recipe-title {
   text-align: center;
   color: #7c4a0a;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+  text-shadow: 0 3px 6px rgba(255, 255, 255, 0.8);
+  letter-spacing: -1px;
+  position: relative;
+  padding-bottom: 15px;
+  animation: slideInDown 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition: all 0.3s ease;
+}
+
+.recipe-title:hover {
+  transform: scale(1.05);
+  text-shadow: 0 5px 12px rgba(217, 124, 33, 0.5);
+}
+
+.recipe-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #d97c21, transparent);
+  border-radius: 2px;
+}
+
+.image-container-large {
+  width: 100%;
+  max-height: 300px;
+  border-radius: 14px;
+  margin: 0 auto 25px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5e2ca 0%, #e8c8a1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(183, 114, 46, 0.35);
 }
 
 .recipe-image-large {
   display: block;
-  margin: 0 auto 25px;
   max-height: 300px;
   width: 100%;
   object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(183, 114, 46, 0.3);
+  border-radius: 14px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-image-large:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(183, 114, 46, 0.45);
 }
 
 .recipe-info p {
@@ -51,25 +106,67 @@
 }
 
 .ingredient-item {
-  background: #fff;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 250, 240, 0.98) 100%);
+  backdrop-filter: blur(5px);
   border: 1px solid #e4c8aa;
-  padding: 10px 15px;
-  margin-bottom: 8px;
-  border-radius: 8px;
+  padding: 14px 20px;
+  margin-bottom: 12px;
+  border-radius: 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 500;
   color: #5a3d1b;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 3px 10px rgba(228, 200, 170, 0.25);
+  animation: slideInLeft 0.6s ease-out backwards;
+  position: relative;
+  overflow: hidden;
 }
 
+.ingredient-item::before {
+  content: '';
+  position: absolute;
+  right: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(217, 124, 33, 0.1), transparent);
+  transition: right 0.5s;
+}
+
+.ingredient-item:hover::before {
+  right: 100%;
+}
+
+.ingredient-item:hover {
+  transform: translateX(-6px) scale(1.02);
+  box-shadow: 0 6px 18px rgba(228, 200, 170, 0.4);
+  border-color: #d9b382;
+  background: linear-gradient(135deg, rgba(255, 250, 240, 0.98) 0%, rgba(255, 245, 235, 0.95) 100%);
+}
+
+.ingredient-item:nth-child(1) { animation-delay: 0.1s; }
+.ingredient-item:nth-child(2) { animation-delay: 0.15s; }
+.ingredient-item:nth-child(3) { animation-delay: 0.2s; }
+.ingredient-item:nth-child(n+4) { animation-delay: 0.25s; }
+
 .ingredient-badge {
-  background-color: #d97c21;
+  background: linear-gradient(135deg, #d97c21 0%, #b06619 100%);
   color: white;
-  border-radius: 12px;
-  padding: 4px 12px;
+  border-radius: 20px;
+  padding: 6px 14px;
   font-size: 0.9rem;
-  font-weight: bold;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(217, 124, 33, 0.3);
+  transition: all 0.3s ease;
+  letter-spacing: 0.3px;
+}
+
+.ingredient-badge:hover {
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 6px 20px rgba(217, 124, 33, 0.5);
+  animation: bounce 0.5s ease-in-out;
 }
 
 .user-id-box {

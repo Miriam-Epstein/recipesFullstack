@@ -2,11 +2,15 @@
 <!-- //עיצוב צבעי קרם כתום יפה -->
 <div class="recipes-grid">
   <div class="card recipe-card" *ngFor="let recipe of recipes">
-    <img
-      [src]="'http://localhost:1234/img/' + recipe.image"
-      [alt]="'תמונה של ' + recipe.name"
-      class="recipe-image"
-    />
+    <div class="image-container">
+      <img
+        [src]="getImageUrl(recipe)"
+        [alt]="'תמונה של ' + recipe.name"
+        class="recipe-image"
+        (error)="onImageError($event, recipe)"
+        loading="lazy"
+      />
+    </div>
     <h3>{{ recipe.name }}</h3>
 
     <button

@@ -4,75 +4,290 @@
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 24px;
   padding: 30px 20px;
-  background-color: #fff8f0; /* קרם בהיר */
+  background: linear-gradient(to bottom, #fffbf5 0%, #fff8f0 100%);
   min-height: 100vh;
+  position: relative;
+  animation: fadeIn 0.8s ease-out;
 }
 
 .card.recipe-card {
-  border-radius: 15px;
-  box-shadow: 0 6px 14px rgba(148, 84, 45, 0.3); /* צל חום עדין */
-  padding: 20px;
-  background: #fff5eb; /* קרם שמנת */
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(148, 84, 45, 0.25);
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(255, 245, 235, 0.9) 0%, rgba(255, 250, 240, 0.95) 100%);
+  backdrop-filter: blur(10px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  border: 1.5px solid #d9b382; /* מסגרת צבע חום-זהוב */
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border: 1.5px solid rgba(217, 156, 50, 0.3);
+  animation: slideInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) backwards, float 6s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
 }
 
+.card.recipe-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(217, 124, 33, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.card.recipe-card:hover::after {
+  opacity: 1;
+  animation: rotate 3s linear infinite;
+}
+
+.card.recipe-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.card.recipe-card:hover::before {
+  left: 100%;
+}
+
+.card.recipe-card:nth-child(1) { animation-delay: 0.1s; }
+.card.recipe-card:nth-child(2) { animation-delay: 0.2s; }
+.card.recipe-card:nth-child(3) { animation-delay: 0.3s; }
+.card.recipe-card:nth-child(4) { animation-delay: 0.4s; }
+.card.recipe-card:nth-child(5) { animation-delay: 0.5s; }
+.card.recipe-card:nth-child(n+6) { animation-delay: 0.6s; }
+
 .card.recipe-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(148, 84, 45, 0.5);
-  border-color: #bf6f2d; /* צבע חום עז יותר */
+  transform: translateY(-12px) scale(1.05) rotate(1deg);
+  box-shadow: 0 20px 40px rgba(148, 84, 45, 0.5), 0 0 30px rgba(217, 124, 33, 0.3);
+  border-color: #bf6f2d;
+  animation: float 3s ease-in-out infinite, glow 2s ease-in-out infinite;
+}
+
+.image-container {
+  width: 100%;
+  max-width: 220px;
+  height: 160px;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5e2ca 0%, #e8c8a1 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(183, 114, 46, 0.35);
+  position: relative;
+  animation: zoomIn 0.6s ease-out;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  transition: left 0.6s;
+}
+
+.image-container:hover::before {
+  left: 100%;
+}
+
+.image-container:hover {
+  transform: scale(1.05) rotate(2deg);
+  box-shadow: 0 10px 30px rgba(183, 114, 46, 0.5);
 }
 
 .recipe-image {
   width: 100%;
-  max-width: 220px;
-  height: 160px;
+  height: 100%;
   object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 15px;
-  box-shadow: 0 3px 12px rgba(183, 114, 46, 0.4);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: block;
+}
+
+.recipe-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(217, 124, 33, 0.1) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 16px;
+}
+
+.recipe-image:hover {
+  transform: scale(1.1) translateY(-6px) rotate(1deg);
+  box-shadow: 0 15px 35px rgba(183, 114, 46, 0.6);
+  filter: brightness(1.1) contrast(1.05);
+}
+
+.recipe-image:hover::after {
+  opacity: 1;
 }
 
 .recipe-card h3 {
-  color: #7c4a0a; /* חום עמוק */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #7c4a0a;
   font-weight: 700;
-  font-size: 1.4rem;
-  margin-bottom: 20px;
+  font-size: 1.5rem;
+  margin-bottom: 22px;
   text-align: center;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+  letter-spacing: -0.5px;
+  line-height: 1.3;
+  position: relative;
+  animation: slideInLeft 0.8s ease-out backwards;
+  transition: all 0.3s ease;
+}
+
+.recipe-card:hover h3 {
+  transform: scale(1.05);
+  text-shadow: 0 4px 8px rgba(217, 124, 33, 0.4);
+}
+
+.recipe-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #d97c21, transparent);
+  border-radius: 2px;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.recipe-card h3::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #d97c21, transparent);
+  border-radius: 2px;
+  animation: slideInUp 0.6s ease-out 0.3s backwards;
+}
+
+.recipe-card:hover h3::after {
+  transform: translateX(-50%) scaleX(1);
+  width: 80px;
 }
 
 .btn-primary {
-  background-color: #d97c21; /* כתום-זהוב */
+  background: linear-gradient(135deg, #d97c21 0%, #b06619 100%);
   border-color: #b06619;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 700;
   font-size: 1rem;
-  transition: background-color 0.3s ease;
+  padding: 10px 16px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 4px 12px rgba(217, 124, 33, 0.4);
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 0.6s ease-out backwards;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .btn-primary:hover {
-  background-color: #b06619;
+  background: linear-gradient(135deg, #b06619 0%, #8c5212 100%);
   border-color: #8c5212;
+  box-shadow: 0 8px 20px rgba(217, 124, 33, 0.6), 0 0 20px rgba(217, 124, 33, 0.4);
+  transform: translateY(-4px) scale(1.02);
+  animation: bounce 0.6s ease-in-out;
+}
+
+.btn-primary:active {
+  transform: translateY(-1px) scale(0.98);
+  animation: shake 0.3s ease-in-out;
 }
 
 .btn-outline-danger {
-  color: #b04500; /* אדום חם */
-  border-color: #b04500;
+  color: #b04500;
+  border: 2px solid #b04500;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
   font-weight: 700;
   font-size: 1rem;
   margin-top: 10px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  padding: 10px 16px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  animation: slideInUp 0.6s ease-out 0.2s backwards;
+}
+
+.btn-outline-danger::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(176, 69, 0, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-outline-danger:hover::before {
+  left: 100%;
 }
 
 .btn-outline-danger:hover {
   background-color: #b04500;
   color: white;
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(176, 69, 0, 0.5), 0 0 20px rgba(176, 69, 0, 0.3);
+  border-color: #ff6b6b;
+}
+
+.btn-outline-danger i {
+  transition: all 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+.btn-outline-danger:hover i {
+  animation: heartBeat 0.8s ease-in-out infinite, wiggle 0.5s ease-in-out;
+  color: #ff6b6b;
+  transform: scale(1.2);
 }

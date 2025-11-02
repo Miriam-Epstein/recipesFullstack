@@ -1,7 +1,13 @@
 
 <!-- //פה טוענים את הקומפננטות הרצויות -->
-<app-nav></app-nav>
+<div class="app-wrapper">
+  <app-nav></app-nav>
 
-<div class="container mt-3">
-  <router-outlet></router-outlet>
+  <main class="main-content">
+    <div class="container mt-3">
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <app-footer></app-footer>
 </div>

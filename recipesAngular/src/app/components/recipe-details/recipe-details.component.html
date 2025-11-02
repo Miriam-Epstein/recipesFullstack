@@ -5,11 +5,15 @@
   <div class="recipe-details-card">
     <h2 class="recipe-title">{{ recipe.name }}</h2>
 
-    <img
-      [src]="'http://localhost:1234/img/' + recipe.image"
-      alt="תמונה של {{ recipe.name }}"
-      class="recipe-image-large"
-    />
+    <div class="image-container-large">
+      <img
+        [src]="getImageUrl(recipe)"
+        [alt]="'תמונה של ' + recipe.name"
+        class="recipe-image-large"
+        (error)="onImageError($event)"
+        loading="lazy"
+      />
+    </div>
 
     <div class="recipe-info">
       <p><strong>תיאור:</strong> {{ recipe.description }}</p>

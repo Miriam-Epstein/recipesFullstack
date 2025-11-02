@@ -3,18 +3,44 @@
 
 .favorites-container {
   padding: 30px 20px;
-  background-color: #fff8f0; /* צבע רקע אחיד */
+  background: linear-gradient(to bottom, #fffbf5 0%, #fff8f0 100%);
   min-height: 100vh;
 }
 
 /* כותרת */
 .favorites-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: #7c4a0a;
-  font-weight: bold;
+  font-weight: 800;
   text-align: center;
-  margin-bottom: 30px;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+  margin-bottom: 35px;
+  text-shadow: 0 3px 6px rgba(255, 255, 255, 0.8);
+  letter-spacing: -1px;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.favorites-title::after {
+  content: '❤️';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5px;
+  font-size: 1.5rem;
+  opacity: 0.6;
+  animation: float 3s ease-in-out infinite, heartBeat 2s ease-in-out infinite;
+}
+
+.favorites-title::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #d97c21, transparent);
+  border-radius: 2px;
 }
 
 /* הודעת שגיאה */
@@ -28,14 +54,26 @@
 /* הודעה כשהרשימה ריקה */
 .no-favorites {
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: #6d6037;
-  background-color: #fff5eb;
-  border: 1px solid #d9b382;
-  padding: 16px;
-  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(255, 245, 235, 0.9) 0%, rgba(255, 250, 240, 0.95) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(217, 156, 50, 0.3);
+  padding: 30px 40px;
+  border-radius: 20px;
   width: fit-content;
-  margin: 0 auto 30px;
+  margin: 40px auto;
+  box-shadow: 0 8px 20px rgba(148, 84, 45, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+  position: relative;
+}
+
+.no-favorites::before {
+  content: '💔';
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 12px;
+  animation: heartBeat 1.5s ease-in-out infinite;
 }
 
 /* גריד של כרטיסים */
@@ -49,29 +87,78 @@
 
 /* עיצוב כרטיס מועדף */
 .favorite-card {
-  border-radius: 15px;
-  box-shadow: 0 6px 14px rgba(148, 84, 45, 0.3);
-  padding: 20px;
-  background: #fff5eb;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(148, 84, 45, 0.25);
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(255, 245, 235, 0.9) 0%, rgba(255, 250, 240, 0.95) 100%);
+  backdrop-filter: blur(10px);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  border: 1.5px solid #d9b382;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1.5px solid rgba(217, 156, 50, 0.3);
   text-align: center;
+  animation: slideInUp 0.6s ease-out backwards;
+  position: relative;
+  overflow: hidden;
 }
 
+.favorite-card::before {
+  content: '❤️';
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 1.5rem;
+  opacity: 0.3;
+}
+
+.favorite-card:nth-child(1) { animation-delay: 0.1s; }
+.favorite-card:nth-child(2) { animation-delay: 0.2s; }
+.favorite-card:nth-child(3) { animation-delay: 0.3s; }
+.favorite-card:nth-child(4) { animation-delay: 0.4s; }
+.favorite-card:nth-child(n+5) { animation-delay: 0.5s; }
+
 .favorite-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(148, 84, 45, 0.5);
+  transform: translateY(-12px) scale(1.05) rotate(1deg);
+  box-shadow: 0 20px 40px rgba(148, 84, 45, 0.5), 0 0 30px rgba(217, 124, 33, 0.3);
   border-color: #bf6f2d;
+  animation: float 3s ease-in-out infinite, glow 2s ease-in-out infinite;
+}
+
+.favorite-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(217, 124, 33, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.favorite-card:hover::after {
+  opacity: 1;
+  animation: rotate 4s linear infinite;
 }
 
 .favorite-card h3 {
   color: #7c4a0a;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 700;
   margin: 0;
+  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+  letter-spacing: -0.3px;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.favorite-card:hover h3 {
+  transform: scale(1.08);
+  text-shadow: 0 4px 8px rgba(217, 124, 33, 0.4);
+  color: #bf6f2d;
 }
 
 

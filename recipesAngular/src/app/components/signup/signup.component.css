@@ -5,32 +5,34 @@
  .login-card {
   max-width: 450px;
   margin: 60px auto;
-  background: #fdfdfd;
-  border-radius: 16px;
-  border: 1px solid #ddd;
-  box-shadow: 0 4px 16px rgba(139, 94, 60, 0.2); /* צל חום בהיר */
-  border-top: 8px solid #8b5e3c; /* פס עליון צבעוני */
-  transition: 0.3s ease-in-out;
+  background-color: #fff5eb; 
+  border-radius: 18px;
+  border: 1.5px solid #d9b382;
+  box-shadow: 0 8px 20px rgba(148, 84, 45, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 35px;
 }
 
 .login-card:hover {
-  box-shadow: 0 8px 24px rgba(115, 73, 44, 0.3); /* צל חזק יותר בהובר */
+  box-shadow: 0 12px 28px rgba(115, 73, 44, 0.35);
+  transform: translateY(-4px);
 }
 
 .login-btn {
-  background-color: #8b5e3c; /* חום כהה שמתאים לסגנון האתר */
+  background-color: #8b5e3c;
   color: white;
   border: none;
-  transition: 0.3s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 12px;
-  padding: 12px;
-  font-size: 1.1rem;
-  font-weight: bold;
+  padding: 12px 24px;
+  font-weight: 600;
+  box-shadow: 0 3px 10px rgba(139, 94, 60, 0.3);
 }
 
 .login-btn:hover {
   background-color: #73492c;
-  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(139, 94, 60, 0.4);
+  transform: translateY(-2px);
 }
 
 .custom-login-title {
@@ -42,14 +44,15 @@
   border: 2px solid #ddd;
   border-radius: 12px;
   padding: 0.75rem 1rem;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .form-control:focus {
   border-color: #8b5e3c;
   box-shadow: 0 0 0 4px rgba(139, 94, 60, 0.15);
-  background-color: #fffdf8; /* רקע רך */
+  background-color: #fffdf8;
   outline: none;
+  transform: translateY(-1px);
 }
 
 .form-label {
